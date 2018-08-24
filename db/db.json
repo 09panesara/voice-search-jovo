@@ -1,0 +1,86 @@
+[
+	{
+		"userId": "jovo-debugger-user",
+		"userData": {
+			"data": {
+				"hello": "helloooo amrita",
+				"movies": [
+					{
+						"title": "Prisoners",
+						"unfinished_viewing": true,
+						"genres": [
+							"Crime",
+							"Drama",
+							"Thriller"
+						],
+						"actors": [
+							"Hugh Jackman",
+							"Jake Gyllenhaal",
+							"Viola Davis"
+						]
+					}
+				]
+			},
+			"metaData": {
+				"createdAt": "2018-08-01T15:02:31.480Z",
+				"lastUsedAt": "2018-08-24T10:14:41.541Z",
+				"sessionsCount": 181
+			},
+			"context": {
+				"prev": [
+					{
+						"request": {
+							"intent": "FilterByRunningTime",
+							"timestamp": "2018-08-24T10:14:41.526Z",
+							"state": "MovieState.NarrowDownState",
+							"inputs": {
+								"runningTime": {
+									"name": "runningTime",
+									"value": "1991"
+								}
+							}
+						},
+						"response": {
+							"speech": "Sorry, I didn't quite get that. Maybe try asking for a particualr genre or actor?",
+							"reprompt": "Sorry I didn't understand you. Can you ",
+							"state": "MovieState"
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"userId": "amzn1.ask.account.AFULIRHFGIWJDQEKTPSWO7MT2B3ZXVCNBCUBNAH3EQQD6NDV5VRGLMR7L3NWPYHQEDHM3ZJSLERJV42G4H3RB7QSDVC66UIBVW6JYPFNKESPNRLMLZNYKI4JETV4CH4CTAKIZRNWEBOEQ3GYNYIH64EAQNNCQYFRUV33IWISQD4APZTSAM2SBTOG66CK3GGTFAUWRZW37EUCNBY",
+		"userData": {
+			"data": {},
+			"metaData": {
+				"createdAt": "2018-08-23T16:07:00.325Z",
+				"lastUsedAt": "2018-08-24T10:22:02.009Z",
+				"sessionsCount": 22
+			},
+			"context": {
+				"prev": [
+					{
+						"request": {
+							"intent": "StartGuruIntent",
+							"timestamp": "2018-08-24T10:22:01Z",
+							"state": "InitialInteractionState",
+							"inputs": {
+								"contentTitle": {
+									"name": "contentTitle",
+									"confirmationStatus": "NONE"
+								}
+							}
+						},
+						"response": {
+							"speech": "Would you like to watch a tv show or a film??",
+							"reprompt": "What would you prefer - a movie or a tv show?",
+							"state": "InitialInteractionState"
+						}
+					}
+				]
+			}
+		}
+	}
+]
