@@ -1,0 +1,404 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "tv guru",
+			"types": [
+				{
+					"name": "contentTitleType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "content"
+							}
+						}
+					]
+				},
+				{
+					"name": "tvShowType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "game of thrones"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "knightwatch"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "bake off",
+								"synonyms": [
+									"great british bake off",
+									"the bake off"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "actorType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "tom cruise"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "angelina jolie"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "idris elba"
+							}
+						}
+					]
+				},
+				{
+					"name": "contentFormatType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "tv show",
+								"synonyms": [
+									"show",
+									"episode of something",
+									"television show"
+								]
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "movie",
+								"synonyms": [
+									"film",
+									"picture"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "genreType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "comedy"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "romance"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "documentary"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "horror"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "sci-fi",
+								"synonyms": [
+									"science fiction"
+								]
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "fantasy"
+							}
+						}
+					]
+				},
+				{
+					"name": "movieFormatType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "movie"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "film"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "picture"
+							}
+						}
+					]
+				},
+				{
+					"name": "showFormatType",
+					"values": [
+						{
+							"id": null,
+							"name": {
+								"value": "tv show"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "show"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "television show"
+							}
+						},
+						{
+							"id": null,
+							"name": {
+								"value": "episode of something"
+							}
+						}
+					]
+				}
+			],
+			"intents": [
+				{
+					"name": "LAUNCH",
+					"samples": [
+						"hi tv guru",
+						"hello tv guru",
+						"start tv guru",
+						"tv guru"
+					]
+				},
+				{
+					"name": "StartGuruIntent",
+					"samples": [
+						"i want to watch something",
+						"can you play me something",
+						"can you find me something to watch",
+						"i want to watch {contentTitle}",
+						"play me {contentTitle}",
+						"can you play me {contentTitle}",
+						"{contentTitle}"
+					],
+					"slots": [
+						{
+							"name": "contentTitle",
+							"type": "contentTitleType"
+						}
+					]
+				},
+				{
+					"name": "SearchTVShowIntent",
+					"samples": [
+						"I want to watch {tvShow}",
+						"play me {tvShow}",
+						"can you play me {tvShow}",
+						"I want to watch episode {episodeNo} of {tvShow}",
+						"I want to watch episode {episodeNo} series {seriesNo} {tvShow}",
+						"I want to continue watching season {seriesNo} of {tvShow}",
+						"I want to watch the next episode in {tvShow}",
+						"I want to watch the next episode of {tvShow}",
+						"play me the next episode in {tvShow}",
+						"play me the next episode of {tvShow}",
+						"play me the next episode of season {seriesNo} {tvShow}",
+						"play me the next episode of {tvShow} series {seriesNo}"
+					],
+					"slots": [
+						{
+							"name": "seriesNo",
+							"type": "AMAZON.NUMBER"
+						},
+						{
+							"name": "episodeNo",
+							"type": "AMAZON.NUMBER"
+						},
+						{
+							"name": "tvShow",
+							"type": "tvShowType"
+						}
+					]
+				},
+				{
+					"name": "SearchMovieIntent",
+					"samples": [
+						"i want to watch {movieTitle}",
+						"play me {movieTitle}",
+						"can you play me {movieTitle}"
+					],
+					"slots": [
+						{
+							"name": "movieTitle",
+							"type": "AMAZON.SearchQuery"
+						}
+					]
+				},
+				{
+					"name": "FilterByActorIntent",
+					"samples": [
+						"{actor}",
+						"something with {actor} in it",
+						"I'd like to see something with {actor}",
+						"I'd like to see something with {actor} in it",
+						"show me something with {actor}",
+						"play me something with {actor} in it",
+						"Please show me something with {actor}",
+						"Please play me something with {actor} in it"
+					],
+					"slots": [
+						{
+							"name": "actor",
+							"type": "actorType"
+						},
+						{
+							"name": "contentFormat",
+							"type": "contentFormatType"
+						},
+						{
+							"name": "genre",
+							"type": "genreType"
+						}
+					]
+				},
+				{
+					"name": "FilterByGenreIntent",
+					"samples": [
+						"a {genre}",
+						"find me a {genre} please",
+						"I'd like to watch a {genre}",
+						"can you please play me a {genre}",
+						"play me a {genre}"
+					],
+					"slots": [
+						{
+							"name": "genre",
+							"type": "genreType"
+						}
+					]
+				},
+				{
+					"name": "FilterByRunningTime",
+					"samples": [
+						"{runningTime}",
+						"{runningTime} please"
+					],
+					"slots": [
+						{
+							"name": "runningTime",
+							"type": "AMAZON.DURATION"
+						}
+					]
+				},
+				{
+					"name": "DetermineContentTypeIntent",
+					"samples": [
+						"i would like to watch a {contentFormat}",
+						"i want to watch a {contentFormat}",
+						"a {contentFormat}",
+						"{contentFormat}",
+						"can I watch a {contentFormat}",
+						"find me a {contentFormat}",
+						"do you have a {contentFormat}",
+						"play me a {contentFormat}",
+						"i'm in the mood for a {contentFormat}"
+					],
+					"slots": [
+						{
+							"name": "contentFormat",
+							"type": "contentFormatType"
+						}
+					]
+				},
+				{
+					"name": "MovieFormatIntent",
+					"samples": [
+						"i would like to watch a {movieFormat}",
+						"i want to watch a {movieFormat}",
+						"a {movieFormat}",
+						"{movieFormat}",
+						"can I watch a {movieFormat}",
+						"find me a {movieFormat}",
+						"do you have a {movieFormat}",
+						"play me a {movieFormat}",
+						"i'm in the mood for a {movieFormat}",
+						"hello"
+					],
+					"slots": [
+						{
+							"name": "movieFormat",
+							"type": "movieFormatType"
+						}
+					]
+				},
+				{
+					"name": "TvShowFormatIntent",
+					"samples": [
+						"I would like to watch a {showFormat}",
+						"I want to watch a {showFormat}",
+						"a {showFormat}",
+						"{showFormat}",
+						"can I watch a {showFormat}",
+						"find me a {showFormat}",
+						"do you have a {showFormat}",
+						"play me a {showFormat}",
+						"I'm in the mood for a {showFormat}"
+					],
+					"slots": [
+						{
+							"name": "showFormat",
+							"type": "showFormatType"
+						}
+					]
+				},
+				{
+					"name": "NarrowDownByYearIntent",
+					"samples": [
+						"{movieYear}",
+						"From {movieYear}"
+					],
+					"slots": [
+						{
+							"name": "movieYear",
+							"type": "AMAZON.DATE"
+						}
+					]
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				}
+			]
+		}
+	}
+}

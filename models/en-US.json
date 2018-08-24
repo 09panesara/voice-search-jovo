@@ -1,0 +1,354 @@
+{
+  "invocation": "tv guru",
+  "intents": [
+    {
+      "name": "LAUNCH",
+      "phrases": [
+        "hi tv guru",
+        "hello tv guru",
+        "start tv guru",
+        "tv guru"
+      ]
+    },
+    {
+      "name": "StartGuruIntent",
+      "phrases": [
+        "i want to watch something",
+        "can you play me something",
+        "can you find me something to watch",
+        "i want to watch {contentTitle}",
+        "play me {contentTitle}",
+        "can you play me {contentTitle}",
+        "{contentTitle}"
+      ],
+      "inputs": [
+        {
+          "name": "contentTitle",
+          "type": "contentTitleType"
+        }
+      ]
+    },
+    {
+      "name": "SearchTVShowIntent",
+      "phrases": [
+        "I want to watch {tvShow}",
+        "play me {tvShow}",
+        "can you play me {tvShow}",
+        "I want to watch episode {episodeNo} of {tvShow}",
+        "I want to watch episode {episodeNo} series {seriesNo} {tvShow}",
+        "I want to continue watching season {seriesNo} of {tvShow}",
+        "I want to watch the next episode in {tvShow}",
+        "I want to watch the next episode of {tvShow}",
+        "play me the next episode in {tvShow}",
+        "play me the next episode of {tvShow}",
+        "play me the next episode of season {seriesNo} {tvShow}",
+        "play me the next episode of {tvShow} series {seriesNo}"
+      ],
+      "inputs": [
+        {
+          "name": "seriesNo",
+          "type": {
+            "alexa": "AMAZON.NUMBER"
+          }
+        },
+        {
+          "name": "episodeNo",
+          "type": {
+            "alexa": "AMAZON.NUMBER"
+          }
+        },
+        {
+          "name": "tvShow",
+          "type": "tvShowType"
+        }
+      ]
+    },
+    {
+      "name": "SearchMovieIntent",
+      "phrases": [
+        "i want to watch {movieTitle}",
+        "play me {movieTitle}",
+        "can you play me {movieTitle}"
+      ],
+      "inputs": [
+        {
+          "name": "movieTitle",
+          "type": {
+          	"alexa": "AMAZON.SearchQuery"
+          }
+      	}
+      ]
+    },
+    {
+      "name": "FilterByActorIntent",
+      "phrases": [
+        "{actor}",
+        "something with {actor} in it",
+        "I'd like to see something with {actor}",
+        "I'd like to see something with {actor} in it",
+        "show me something with {actor}",
+        "play me something with {actor} in it",
+        "Please show me something with {actor}",
+        "Please play me something with {actor} in it"
+      ],
+      "inputs": [
+        {
+          "name": "actor",
+          "type": "actorType"
+        },
+        {
+          "name": "contentFormat",
+          "type": "contentFormatType"
+        },
+        {
+          "name": "genre",
+          "type": "genreType"
+        }
+      ]
+    },
+    {
+      "name": "FilterByGenreIntent",
+      "phrases": [
+        "a {genre}",
+        "find me a {genre} please",
+        "I'd like to watch a {genre}",
+        "can you please play me a {genre}",
+        "play me a {genre}"
+      ],
+      "inputs": [
+        {
+          "name": "genre",
+          "type": "genreType"
+        }
+      ]
+    },
+    {
+      "name": "FilterByRunningTime",
+      "phrases": [
+        "{runningTime}",
+        "{runningTime} please"
+      ],
+      "inputs": [
+        {
+          "name": "runningTime",
+          "type": {
+            "alexa": "AMAZON.DURATION"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DetermineContentTypeIntent",
+      "phrases": [
+        "i would like to watch a {contentFormat}",
+        "i want to watch a {contentFormat}",
+        "a {contentFormat}",
+        "{contentFormat}",
+        "can I watch a {contentFormat}",
+        "find me a {contentFormat}",
+        "do you have a {contentFormat}",
+        "play me a {contentFormat}",
+        "i'm in the mood for a {contentFormat}"
+      ],
+      "inputs": [
+        {
+          "name": "contentFormat",
+          "type": "contentFormatType"
+        }
+      ]
+    },
+    {
+      "name": "MovieFormatIntent",
+      "phrases": [
+        "i would like to watch a {movieFormat}",
+        "i want to watch a {movieFormat}",
+        "a {movieFormat}",
+        "{movieFormat}",
+        "can I watch a {movieFormat}",
+        "find me a {movieFormat}",
+        "do you have a {movieFormat}",
+        "play me a {movieFormat}",
+        "i'm in the mood for a {movieFormat}",
+        "hello"
+      ],
+      "inputs": [
+        {
+          "name": "movieFormat",
+          "type": "movieFormatType"
+        }
+      ]
+    },
+    {
+      "name": "TvShowFormatIntent",
+      "phrases": [
+        "I would like to watch a {showFormat}",
+        "I want to watch a {showFormat}",
+        "a {showFormat}",
+        "{showFormat}",
+        "can I watch a {showFormat}",
+        "find me a {showFormat}",
+        "do you have a {showFormat}",
+        "play me a {showFormat}",
+        "I'm in the mood for a {showFormat}"
+      ],
+      "inputs": [
+        {
+          "name": "showFormat",
+          "type": "showFormatType"
+        }
+      ]
+    },
+    {
+      "name": "NarrowDownByYearIntent",
+      "phrases": [
+        "{movieYear}",
+        "From {movieYear}"
+      ],
+      "inputs": [
+        {
+          "name": "movieYear",
+          "type": {
+            "alexa": "AMAZON.DATE",
+            "dialogflow": "@sys.date"
+          }
+        }
+      ]
+    }
+  ],
+  "inputTypes": [
+    {
+      "name": "contentFormatType",
+      "values": [
+        {
+          "value": "tv show",
+          "synonyms": [
+            "show",
+            "episode of something",
+            "television show"
+          ]
+        },
+        {
+          "value": "movie",
+          "synonyms": [
+            "film",
+            "picture"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "movieFormatType",
+      "values": [
+        {
+          "value": "movie"
+        },
+        {
+          "value": "film"
+        },
+        {
+          "value": "picture"
+        }
+      ]
+    },
+    {
+      "name": "showFormatType",
+      "values": [
+        {
+          "value": "tv show"
+        },
+        {
+          "value": "show"
+        },
+        {
+          "value": "television show"
+        },
+        {
+          "value": "episode of something"
+        }
+      ]
+    },
+    {
+      "name": "genreType",
+      "values": [
+        {
+          "value": "comedy"
+        },
+        {
+          "value": "romance"
+        },
+        {
+          "value": "documentary"
+        },
+        {
+          "value": "horror"
+        },
+        {
+          "value": "sci-fi",
+          "synonyms": [
+            "science fiction"
+          ]
+        },
+        {
+          "value": "fantasy"
+        }
+      ]
+    },
+    {
+      "name": "actorType",
+      "values": [
+        {
+          "value": "tom cruise"
+        },
+        {
+          "value": "angelina jolie"
+        },
+        {
+          "value": "idris elba"
+        }
+      ]
+    },
+    {
+      "name": "tvShowType",
+      "values": [
+        {
+          "value": "game of thrones"
+        },
+        {
+          "value": "knightwatch"
+        },
+        {
+          "value": "bake off",
+          "synonyms": [
+            "great british bake off",
+            "the bake off"
+          ]
+        }
+      ]
+    },
+   
+    {
+      "name": "contentTitleType",
+      "values": [
+      	{
+          "value": "content"
+        }
+      ]
+    }
+  ],
+  "alexa": {
+    "interactionModel": {
+      "languageModel": {
+        "intents": [
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": []
+          }
+        ]
+      }
+    }
+  }
+}
